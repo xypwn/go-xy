@@ -2,6 +2,8 @@
 
 Dependency-free Go utilities.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/xypwn/go-xy.svg)](https://pkg.go.dev/github.com/xypwn/go-xy)
+
 ## /it
 It provides some functional iterator-related capabilities (e.g. `Map`, `Filter`, `Uniq`, map `SortedByKey` and many more).
 
