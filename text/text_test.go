@@ -1,43 +1,28 @@
-package text
+package text_test
 
 import (
 	"testing"
 
 	"github.com/xypwn/go-xy/tests"
+	"github.com/xypwn/go-xy/text"
 )
 
 func TestIndentString(tt *testing.T) {
 	t := tests.New(tt)
+	t.DefaultPrinter = tests.QuotePrinter
 
-	t.Equal(`  Hello
-  World`,
-		IndentString(`Hello
-World`, "  ", 1),
-	)
+	t.Equal("  Hello\n  World",
+		text.IndentString("Hello\nWorld", "  ", 1))
 
-	t.Equal(`  Hello
-  World
-`,
-		IndentString(`Hello
-World
-`, "  ", 1),
-	)
+	t.Equal("  Hello\n  World\n",
+		text.IndentString("Hello\nWorld\n", "  ", 1))
 
-	t.Equal(`  Hello
-  World
-  `,
-		IndentString(`Hello
-World
-  `, "  ", 1),
-	)
+	t.Equal("  Hello\n  World\n",
+		text.IndentString("Hello\nWorld\n  ", "  ", 1))
 
-	t.Equal(`  Hello
-  
-  World
-`,
-		IndentString(`Hello
-  
-World
-`, "  ", 1),
-	)
+	t.Equal("  Hello\n\n  World\n",
+		text.IndentString("Hello\n  \nWorld\n", "  ", 1))
+
+	t.Equal(" A\r\n\r\n B\r\n",
+		text.IndentString("A\r\n \r\nB\r\n", " ", 1))
 }
