@@ -40,6 +40,7 @@ func ExampleIndentString() {
 }`
 	fmt.Println(text.IndentString(s, "\t", 1))
 	// Output:
+	//
 	// 	{
 	// 		x := "world"
 	//
