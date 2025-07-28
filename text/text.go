@@ -31,7 +31,7 @@ func IndentString(s string, indent string, nIndent int) string {
 		} else {
 			hitNewline = true
 			end += start + 1 // adjust to offset and include "\n"
-			crlf = end >= 2 && end-2 < len(b) && b[end-2] == '\r'
+			crlf = end-2 >= start && end-2 < len(b) && b[end-2] == '\r'
 		}
 		line := b[start:end]
 		if slices.ContainsFunc(line, func(b byte) bool { return !asciiSpace[b] }) {
