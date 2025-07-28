@@ -1,6 +1,7 @@
 package text_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/xypwn/go-xy/tests"
@@ -25,4 +26,19 @@ func TestIndentString(tt *testing.T) {
 
 	t.Equal(" A\r\n\r\n B\r\n",
 		text.IndentString("A\r\n \r\nB\r\n", " ", 1))
+
+func ExampleIndentString() {
+	s := `
+{
+	x := "world"
+
+	fmt.Println("Hello,", x)
+}`
+	fmt.Println(text.IndentString(s, "\t", 1))
+	// Output:
+	// 	{
+	// 		x := "world"
+	//
+	// 		fmt.Println("Hello,", x)
+	// 	}
 }
