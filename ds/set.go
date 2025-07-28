@@ -30,8 +30,8 @@ func (s Set[T]) Sub(other Set[T]) {
 	}
 }
 
-// Sub inserts all elements contained
-// contained in other.
+// Union inserts all elements contained
+// in other.
 func (s Set[T]) Union(other Set[T]) {
 	for k := range other {
 		s.Add(k)
@@ -48,8 +48,7 @@ func (s Set[T]) Clone() Set[T] {
 }
 
 // Values returns an iterator over all keys
-// in the set. Order is unspecified and
-// not consistent.
+// in the set. The order is undefined.
 func (s Set[T]) Values() iter.Seq[T] {
 	return func(yield func(T) bool) {
 		for k := range s {
