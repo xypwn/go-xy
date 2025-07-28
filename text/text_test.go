@@ -27,6 +27,10 @@ func TestIndentString(tt *testing.T) {
 	t.Equal(" A\r\n\r\n B\r\n",
 		text.IndentString("A\r\n \r\nB\r\n", " ", 1))
 
+	t.Equal("\n A",
+		text.IndentString("\nA", " ", 1))
+}
+
 func ExampleIndentString() {
 	s := `
 {
