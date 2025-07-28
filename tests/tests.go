@@ -16,7 +16,10 @@ type T struct {
 }
 
 func New(t *testing.T) *T {
-	return &T{T: t}
+	return &T{
+		T:              t,
+		DefaultPrinter: DefaultPrinter,
+	}
 }
 
 func (t *T) Run(name string, run func(t *T)) {
